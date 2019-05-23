@@ -6,7 +6,19 @@ public class Main {
       boolean isTwoPower = findIfTwoPower(collTarget);
       boolean isCollatzTwoPower = findIfCollatzTwoPower(collTarget);
       if (!isTwoPower&&!isCollatzTwoPower){
-        System.out.println(collTarget);
+        double collatzNum = collTarget;
+        int chainNum = 1;
+        while (collatzNum != 1.0) {
+          if (collatzNum % 2 == 1) {
+            collatzNum = (collatzNum*3)+1;
+          } else {
+            collatzNum /= 2;
+          }
+          chainNum++;
+        }
+        if (chainNum > longestChainNum) {
+          longestChainNum = chainNum;
+        }
       }
     }
     System.out.println("done");
